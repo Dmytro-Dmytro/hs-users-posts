@@ -36,7 +36,8 @@ function changeFilter(setUsers: Function) {
   return (event: any) => {
     data.filter = event.target.value;
     data.startPosition = 0;
-    data.usersFiltered = data.users.filter(elem => elem.name.includes(data.filter));
+	const findStr = data.filter.toUpperCase();
+    data.usersFiltered = data.users.filter(elem => elem.name.toUpperCase().includes(findStr));
     setUsers(generateUserCardList());
   };
 }
